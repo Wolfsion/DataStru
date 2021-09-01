@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
-#include "linear.h"
-// #include "linear.cpp"
+// #include "linear.h"
+#include "linear.cpp"
 
 #include <iostream>
 #include <string>

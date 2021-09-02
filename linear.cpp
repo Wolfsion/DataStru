@@ -110,3 +110,164 @@ void showSqList(SqList &sqList) {
 }
 
 
+int increaseSizeSeqList(SeqList &seqList, int len) {
+    int *temp = seqList.data;
+    seqList.data = (int*)malloc(sizeof(int)*(seqList.maxSize+len));
+    for (int i = 0; i < seqList.length; i++) {
+        seqList.data[i] = temp[i];
+    }
+    seqList.maxSize += len;
+    free(temp);
+    temp = NULL;
+    return EXE_SUCCESS;
+}
+
+int initSeqList(SeqList &seqList) {
+    seqList.maxSize = InitSize;
+    seqList.length = 0;
+    seqList.data = (int*)malloc(sizeof(int)*InitSize);
+    if (!seqList.data) {
+        LogHandle(LOG_ERROR, "initSeqList", "malloc() error");
+        return EXE_FAILURE;
+    }
+    for (int i = 0; i < InitSize; i++) {
+        seqList.data[i] = 0;
+    }
+    return EXE_SUCCESS;
+}
+
+int destroySeqList(SeqList &seqList) {
+    free(seqList.data);
+    seqList.data = NULL;
+    return EXE_SUCCESS;
+}
+
+
+int serInitLinkList(LinkList &linkList) {
+    linkList = (LinkList)malloc(sizeof(LNode));
+    LNode *tail = linkList, *curt;
+    int curtValue;
+    while (cin >> curtValue) {
+        curt = (LNode*)malloc(sizeof(LNode));
+        curt->data = curtValue;
+        tail->next = curt;
+        tail = curt;
+        if (cin.get() == '\n') 
+            break;
+    }
+    tail->next = NULL;
+    return EXE_SUCCESS;
+}
+
+int destroyLinkList(LinkList &linkList) {
+    LNode *curt = linkList;
+    LNode *temp;
+    while (curt != NULL) {
+        temp = curt->next;
+        free(curt);
+        curt = temp;
+    }
+    linkList = NULL;
+    return EXE_SUCCESS;
+}
+
+int insertLinkList(LinkList &linkList, int order, int element) {
+    int cnt = 0;
+    LNode *curt = linkList;
+    while (curt != NULL) {
+        if (++cnt == order) {
+            LNode *s = (LNode*)malloc(sizeof(LNode));
+            s->data = element;
+            s->next = curt->next;
+            curt->next = s;
+            return EXE_SUCCESS;
+        }
+        curt = curt->next;
+    }
+    LogHandle(LOG_ERROR, "insertLinkList", "order is not legal");
+    return EXE_FAILURE;
+}
+
+int deleteLinkList(LinkList &linkList, int order, int &element) {
+    int cnt = 0;
+    LNode *curt = linkList;
+    while (curt->next != NULL) {
+        if (++cnt == order) {
+            LNode *temp = curt->next;
+            curt->next = curt->next->next;
+            element = temp->data;
+            free(temp);
+            temp = NULL;
+            return EXE_SUCCESS;
+        }
+        curt = curt->next;
+    }
+    LogHandle(LOG_ERROR, "deleteLinkList", "order is not legal");
+    return EXE_FAILURE;
+}
+
+int locateLinkList(LinkList &linkList, int element) {
+    int order = 0;
+    LNode *curt = linkList->next;
+    while (curt != NULL){
+        order++;
+        if (curt->data == element) {
+            return order;
+        }
+        curt = curt->next;
+    }
+    LogHandle(LOG_ERROR, "getElementLinkList", "order is not legal");
+    return EXE_FAILURE;
+}
+
+int getElementLinkList(LinkList &linkList, int order) {
+    LNode *curt = linkList->next;
+    int cnt = 0;
+    while (curt != NULL){
+        cnt++;
+        if (cnt == order) {
+            return curt->data;
+        }
+        curt = curt->next;
+    }
+    LogHandle(LOG_ERROR, "getElementLinkList", "order is not legal");
+    return EXE_FAILURE;
+}
+
+bool isEmptyLinkList(LinkList &linkList) {
+    return linkList->next == NULL;
+}
+
+int getLenLinkList(LinkList &linkList) {
+    int len = 0;
+    LNode *curt = linkList->next;
+    while (curt != NULL) {
+        len++;
+        curt = curt->next;
+    }
+    return len;
+}
+
+void showLinkList(LinkList &linkList) {
+    LNode *curt = linkList->next;
+    while (curt != NULL){
+        cout << curt->data << " ";
+        curt = curt->next;
+    }
+    cout << endl;
+}
+
+int reverseLinkList(LinkList &linkList) {
+    LNode *curt = linkList->next;
+    LNode *prev = NULL;
+    LNode *temp;
+    while (curt != NULL) {
+        temp = curt->next;
+        curt->next = prev;
+        prev = curt;
+        curt = temp;
+    }
+    linkList->next = prev;
+    return EXE_SUCCESS;
+}
+

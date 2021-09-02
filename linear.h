@@ -5,8 +5,8 @@
 #include <string>
 using namespace std;
 
-#define EXE_SUCCESS 1
-#define EXE_FAILURE 0
+#define EXE_SUCCESS 666
+#define EXE_FAILURE -666
 
 #define LOG_INFO 1
 #define LOG_ERROR 2
@@ -55,6 +55,26 @@ int getElementSqList(SqList &sqList, int order);
 bool isEmptySqList(SqList &sqList);
 int getLenSqList(SqList &sqList);
 void showSqList(SqList &sqList);
+
+//动态分配顺序表*
+
+int increaseSizeSeqList(SeqList &seqList, int len);
+int initSeqList(SeqList &seqList);
+int destroySeqList(SeqList &seqList);
+
+//单链表(带头)*
+
+int serInitLinkList(LinkList &linkList);
+int destroyLinkList(LinkList &linkList);
+int insertLinkList(LinkList &linkList, int order, int element);
+int deleteLinkList(LinkList &linkList, int order, int &element);
+
+int locateLinkList(LinkList &linkList, int element);
+int getElementLinkList(LinkList &linkList, int order);
+bool isEmptyLinkList(LinkList &linkList);
+int getLenLinkList(LinkList &linkList);
+void showLinkList(LinkList &linkList);
+int reverseLinkList(LinkList &linkList);
 
 void LogHandle(int layer, string tag, string detail);
 #endif

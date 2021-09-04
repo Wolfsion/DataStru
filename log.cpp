@@ -1,5 +1,4 @@
-#ifndef _LOG_CPP_
-#define _LOG_CPP_
+#include "main.h"
 
 int curtLogLayer = LOG_ERROR;
 
@@ -11,5 +10,3 @@ void LogHandle(int layer, string tag, string detail) {
         cout << "ERROR-" << tag << ":" << detail << endl;
     }
 }
-
-#endif

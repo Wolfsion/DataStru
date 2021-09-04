@@ -1,10 +1,4 @@
-#include <iostream>
-#include <string>
-#include "../main.h"
-#include "../log.cpp"
-#define MAX_STK_SIZE 10
-#define ASCII_NUM 48
-using namespace std;
+#include "algorithm.h"
 
 int doOperator(int num1, int num2, char op) {
     switch (op){

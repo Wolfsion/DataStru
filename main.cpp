@@ -1,12 +1,6 @@
-#include <cstdio>
-#include <cstdlib>
-// #include "linear.h"
-#include "./linear/linear.cpp"
-#include "./algorithm/expEval.cpp"
-
-#include <iostream>
-#include <string>
-using namespace std;
+#include "main.h"
+#include "./linear/linear.h"
+#include "./algorithm/algorithm.h"
 
 void procSpace() {
 

@@ -1,12 +1,4 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstdbool>
-
-#include <iostream>
-#include <string>
-
 #include "linear.h"
-#include "../log.cpp"
 
 int initSqList(SqList &sqList) {
     for (int i = 0; i < MaxSize; i++) {

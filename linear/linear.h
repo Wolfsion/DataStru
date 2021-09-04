@@ -1,11 +1,7 @@
 #ifndef _LINEAR_H_
 #define _LINEAR_H_
 
-#include <iostream>
-#include <string>
 #include "../main.h"
-using namespace std;
-
 
 //静态分配的顺序表
 #define MaxSize 10
@@ -72,5 +68,4 @@ int getLenLinkList(LinkList &linkList);
 void showLinkList(LinkList &linkList);
 int reverseLinkList(LinkList &linkList);
 
-void LogHandle(int layer, string tag, string detail);
 #endif

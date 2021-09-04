@@ -2,7 +2,7 @@
 #include <cstdlib>
 // #include "linear.h"
 #include "./linear/linear.cpp"
-#include "./stack/stack.cpp"
+#include "./algorithm/expEval.cpp"
 
 #include <iostream>
 #include <string>

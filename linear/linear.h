@@ -3,14 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include "../main.h"
 using namespace std;
 
-#define EXE_SUCCESS 666
-#define EXE_FAILURE -666
 
-#define LOG_INFO 1
-#define LOG_ERROR 2
- 
 //静态分配的顺序表
 #define MaxSize 10
 typedef struct {

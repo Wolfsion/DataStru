@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <cstdlib>
 // #include "linear.h"
-#include "linear.cpp"
+#include "./linear/linear.cpp"
+#include "./stack/stack.cpp"
 
 #include <iostream>
 #include <string>
@@ -96,7 +97,7 @@ void testForLinkList() {
 }
 
 int main() {
-    testForLinkList();
+    printf("%d",getExpressionValue("1*(2+3)-8/4"));
     system("pause");
     return 0;
 }

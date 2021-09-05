@@ -14,24 +14,29 @@
 
 + 目录结构
 
-DataStru
-│  log.cpp：日志调试工具
-│  main.cpp：执行入口函数
-│  main.h：声明全局环境，包括全局引入库、全局宏参数、声明通用接口（例如：输出日志）
-│  Makefile：编译配置脚本
-│
-├─algorithmr：相关算法的整合头文件及各个独立实现
-│      algorithm.h
-│      expEval.cpp
-│      kmp.cpp
-│
-├─linear：顺序表和链表的头文件及相关实现
-│      linear.cpp
-│      linear.h
-│
-└─stack：栈的头文件及相关实现
-        stack.cpp
-        stack.h
+  DataStru  
+  
+  │  log.cpp：日志调试工具   
+  
+  │  main.cpp：执行入口函数  
+  
+  │  main.h：声明全局环境，包括全局引入库、全局宏参数、声明通用接口（例如：输出日志）  
+  
+  │  Makefile：编译配置脚本  
+  
+  │  
+  
+  ├─algorithmr：相关算法的整合头文件及各个独立实现  
+  
+  │  
+  
+  ├─linear：顺序表和链表的头文件及相关实现  
+  
+  │  
+  
+  └─stack：栈的头文件及相关实现   
+  
+  ​	
 
 
 

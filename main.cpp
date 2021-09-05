@@ -1,6 +1,13 @@
 #include "main.h"
-#include "./linear/linear.h"
-#include "./algorithm/algorithm.h"
+
+// //for cmake
+// #include "./linear/linear.h"
+// #include "./algorithm/algorithm.h"
+
+//for vs beta
+#include "./linear/linear.cpp"
+#include "./algorithm/expEval.cpp"
+#include "log.cpp"
 
 void procSpace() {
 

@@ -1,13 +1,16 @@
 #include "main.h"
 
-//for cmake
-#include "./linear/linear.h"
-#include "./algorithm/algorithm.h"
+// //for cmake
+// #include "./linear/linear.h"
+// #include "./algorithm/algorithm.h"
+// #include "./tree/binaryTree.h"
 
-// //for vs beta
-// #include "./linear/linear.cpp"
-// #include "./algorithm/expEval.cpp"
-// #include "log.cpp"
+//for vs beta
+#include "./linear/linear.cpp"
+#include "./algorithm/expEval.cpp"
+#include "./algorithm/LRU.cpp"
+#include "./tree/binaryTree.cpp"
+#include "log.cpp"
 
 void procSpace() {
 
@@ -97,8 +100,23 @@ void testForLinkList() {
     destroyLinkList(list);                 //无异常执行时释放单链表
 }
 
+void testForAlg() {
+    //printf("%d",getExpressionValue("1*(2+3)-8/4"));
+    LRUCache cache = LRUCache(3);
+    cache.put(1,1);
+    cache.put(2,2);
+    cache.put(3,3);
+    cache.put(4,4);
+    cache.view();
+}
+
+void testForBinTree() {
+    vector<int> nums{1,2,3};
+    initBinaryTree(nums);
+}
+
 int main() {
-    printf("%d",getExpressionValue("1*(2+3)-8/4"));
+    testForAlg();
     system("pause");
     return 0;
 }

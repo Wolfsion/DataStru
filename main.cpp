@@ -111,12 +111,15 @@ void testForAlg() {
 }
 
 void testForBinTree() {
-    vector<int> nums{1,2,3};
-    initBinaryTree(nums);
+    vector<int> nums{1, 2, STOP_NUM, 4, STOP_NUM, STOP_NUM, 3};
+    Tree root;
+    initBinaryTree(root, nums);
+    showBinaryTree(root);
+    destoryBinaryTree(root);
 }
 
 int main() {
-    testForAlg();
+    testForBinTree();
     system("pause");
     return 0;
 }

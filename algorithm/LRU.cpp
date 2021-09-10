@@ -5,51 +5,30 @@
 
 #include "algorithm.h"
 
-//淘汰决策的基本单位
-class OpItem {
-    public:
-        int key;
-        int value;
-        OpItem(){}
-        OpItem(int k, int v):key(k), value(v){}
-};
+void LRUCache::addRecently(int key, int value) {
+    OpItem *item = new OpItem(key, value);
+    updata.push_back(item);
+    visit[key] = item;
+}
 
-class LRUCache {
-    private:
-        int capacity;
-        list<OpItem*> updata;
-        unordered_map<int, OpItem*> visit;
-        void addRecently(int key, int value) {
-            OpItem *item = new OpItem(key, value);
-            updata.push_back(item);
-            visit[key] = item;
-        }
+void LRUCache::makeRecently(int key) {
+    OpItem *item = visit[key];
+    updata.remove(item);
+    updata.push_back(item);
+}
 
-        void makeRecently(int key) {
-            OpItem *item = visit[key];
-            updata.remove(item);
-            updata.push_back(item);
-        }
+void LRUCache::deleteByKey(int key) {
+    OpItem *item = visit[key];
+    updata.remove(item);
+    visit.erase(key);
+}
 
-        void deleteByKey(int key) {
-            OpItem *item = visit[key];
-            updata.remove(item);
-            visit.erase(key);
-        }
+void LRUCache::removeLeastUsed() {
+    OpItem *item = updata.front();
+    updata.pop_front();
+    visit.erase(item->key);
+}
 
-        void removeLeastUsed() {
-            OpItem *item = updata.front();
-            updata.pop_front();
-            visit.erase(item->key);
-        }
-
-    public:
-        LRUCache(){}
-        LRUCache(int cap):capacity(cap){}
-        int get(int key);
-        void put(int key, int value);
-        void view();
-};
 
 int LRUCache::get(int key) {
     if (!visit.count(key)) {

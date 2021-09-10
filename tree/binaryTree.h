@@ -2,6 +2,7 @@
 #define _BINTREE_H_
 
 #include "../main.h"
+#include <vector>
 
 #define STOP_NUM -6
 #define MAXSIZE 10
@@ -32,7 +33,7 @@ typedef struct TreeNode {
 
 int initBinaryTree(Tree &root, vector<int> &nums);
 int initCinBinaryTree();
-int destoryBinaryTree();
+int destoryBinaryTree(Tree &root);
 int balanceBinaryTree();
 int clueBinaryTree();
 void preTraverse(Tree &root, vector<int> &nums);

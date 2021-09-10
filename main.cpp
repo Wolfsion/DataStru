@@ -1,16 +1,16 @@
 #include "main.h"
 
-// //for cmake
-// #include "./linear/linear.h"
-// #include "./algorithm/algorithm.h"
-// #include "./tree/binaryTree.h"
+//for cmake
+#include "./linear/linear.h"
+#include "./algorithm/algorithm.h"
+#include "./tree/binaryTree.h"
 
-//for vs beta
-#include "./linear/linear.cpp"
-#include "./algorithm/expEval.cpp"
-#include "./algorithm/LRU.cpp"
-#include "./tree/binaryTree.cpp"
-#include "log.cpp"
+// //for vs beta
+// #include "./linear/linear.cpp"
+// #include "./algorithm/expEval.cpp"
+// #include "./algorithm/LRU.cpp"
+// #include "./tree/binaryTree.cpp"
+// #include "log.cpp"
 
 void procSpace() {
 
